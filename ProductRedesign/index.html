@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporting Goods Product Cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .card-shadow { box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12); }
+        .accent-ring { box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.12); }
+        .flat-card { border-radius: 0; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .flat-card:hover { transform: translateY(-4px); box-shadow: 0 22px 40px rgba(15, 23, 42, 0.18); }
+        .flat-img { border-radius: 0; }
+        .photo-panel { background: #ffffff; height: 12rem; display: flex; align-items: center; justify-content: center; }
+        .photo-panel img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+        .compact-card .card-body { padding: 1rem; }
+        .compact-card .spec-grid { gap: 0.5rem; padding: 0.5rem; }
+        .compact-card .spec-box { padding: 0.5rem; }
+        .compact-card .spec-label { font-size: 9px; }
+        .compact-card .spec-value { font-size: 0.75rem; }
+        .compact-card .title { font-size: 1.3rem; }
+        .compact-card .price { font-size: 2rem; }
+        .compact-card .button { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background: rgba(255,255,255,0.12); }
+    </style>
+</head>
+<body class="bg-[#f3f1ee] text-slate-900 antialiased">
+    <header class="bg-[#f04d23] text-white">
+        <nav class="mx-auto flex max-w-7xl items-center justify-center gap-8 px-4 py-4 text-sm font-semibold uppercase tracking-[0.18em] sm:text-xs">
+            <a class="nav-link rounded px-3 py-2" href="index.html">Product Listings</a>
+            <a class="nav-link rounded px-3 py-2" href="productPage.html">Product Page</a>
+        </nav>
+    </header>
+    <section class="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 py-2.5">
+            <article class="compact-card group flat-card flex h-full flex-col overflow-hidden bg-white card-shadow">
+                <div class="photo-panel relative overflow-hidden p-4">
+                    <img src="https://cdn11.bigcommerce.com/s-tomy5bhc1m/images/stencil/1280x1280/products/35946/23831/725327936664__68407_6440__27781.1785290267.jpg?c=1" alt="Rifle stock photo" class="flat-img" />
+                </div>
+
+                <div class="card-body flex flex-1 flex-col p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-red-800">Taurus</span>
+                    </div>
+
+                    <a href="#" class="title block text-xl font-black leading-tight text-slate-900">TX22 Competition</a>
+
+                    <div class="spec-grid mt-4 grid grid-cols-3 gap-2 bg-slate-50 p-2 accent-ring">
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Barrel</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">5.25&quot;</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Caliber</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">9mm</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Action</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">Semi Auto</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-500">Price</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="price text-2xl font-black text-slate-900">$499</span>
+                                <span class="text-xs font-medium text-slate-400 line-through">$559</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-2 bg-emerald-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                        In stock
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="button w-full bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="compact-card group flat-card flex h-full flex-col overflow-hidden bg-white card-shadow">
+                <div class="photo-panel relative overflow-hidden p-4">
+                    <img src="https://d3ue8e8tc2my2n.cloudfront.net/product_images/302/thumb/xl_1747431935.jpeg" alt="A handgun stock photo" class="flat-img" />
+                </div>
+
+                <div class="card-body flex flex-1 flex-col p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-red-800">Hi-Point</span>
+                    </div>
+
+                    <a href="#" class="title block text-xl font-black leading-tight text-slate-900">C9</a>
+
+                    <div class="spec-grid mt-4 grid grid-cols-3 gap-2 bg-slate-50 p-2 accent-ring">
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Barrel</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">3.5&quot;</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Caliber</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">9mm</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Action</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">Semi Auto</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-500">Price</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="price text-2xl font-black text-slate-900">$689</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-2 bg-blue-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                        <span class="h-2 w-2 rounded-full bg-blue-500"></span>
+                        Warehouse Item
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="button w-full bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="compact-card group flat-card flex h-full flex-col overflow-hidden bg-white card-shadow">
+                <div class="photo-panel relative overflow-hidden p-4">
+                    <img src="https://content.osgnetworks.tv/handgunsmag/content/photos/Ruger-Wrangler-Revolver-770.jpg" alt="Rifle stock photo" class="flat-img" />
+                </div>
+
+                <div class="card-body flex flex-1 flex-col p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-red-800">Ruger</span>
+                    </div>
+
+                    <a href="#" class="title block text-xl font-black leading-tight text-slate-900">Wrangler</a>
+
+                    <div class="spec-grid mt-4 grid grid-cols-3 gap-2 bg-slate-50 p-2 accent-ring">
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Barrel</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">4.62&quot;</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Caliber</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">22LR</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Action</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">Single</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-500">Price</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="price text-2xl font-black text-slate-900">$179</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-2 bg-emerald-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                        In Stock
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="button w-full bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 py-2.5">
+            <article class="compact-card group flat-card flex h-full flex-col overflow-hidden bg-white card-shadow">
+                <div class="photo-panel relative overflow-hidden p-4">
+                    <img src="https://cdn11.bigcommerce.com/s-tomy5bhc1m/images/stencil/1280x1280/products/35946/23831/725327936664__68407_6440__27781.1785290267.jpg?c=1" alt="Rifle stock photo" class="flat-img" />
+                </div>
+
+                <div class="card-body flex flex-1 flex-col p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-red-800">Taurus</span>
+                    </div>
+
+                    <a href="#" class="title block text-xl font-black leading-tight text-slate-900">TX22 Competition</a>
+
+                    <div class="spec-grid mt-4 grid grid-cols-3 gap-2 bg-slate-50 p-2 accent-ring">
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Barrel</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">5.25&quot;</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Caliber</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">9mm</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Action</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">Semi Auto</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-500">Price</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="price text-2xl font-black text-slate-900">$499</span>
+                                <span class="text-xs font-medium text-slate-400 line-through">$559</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-2 bg-emerald-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                        In stock
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="button w-full bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="compact-card group flat-card flex h-full flex-col overflow-hidden bg-white card-shadow">
+                <div class="photo-panel relative overflow-hidden p-4">
+                    <img src="https://d3ue8e8tc2my2n.cloudfront.net/product_images/302/thumb/xl_1747431935.jpeg" alt="A handgun stock photo" class="flat-img" />
+                </div>
+
+                <div class="card-body flex flex-1 flex-col p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-red-800">Hi-Point</span>
+                    </div>
+
+                    <a href="#" class="title block text-xl font-black leading-tight text-slate-900">C9</a>
+
+                    <div class="spec-grid mt-4 grid grid-cols-3 gap-2 bg-slate-50 p-2 accent-ring">
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Barrel</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">3.5&quot;</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Caliber</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">9mm</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Action</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">Semi Auto</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-500">Price</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="price text-2xl font-black text-slate-900">$689</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-2 bg-blue-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                        <span class="h-2 w-2 rounded-full bg-blue-500"></span>
+                        Warehouse Item
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="button w-full bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="compact-card group flat-card flex h-full flex-col overflow-hidden bg-white card-shadow">
+                <div class="photo-panel relative overflow-hidden p-4">
+                    <img src="https://content.osgnetworks.tv/handgunsmag/content/photos/Ruger-Wrangler-Revolver-770.jpg" alt="Rifle stock photo" class="flat-img" />
+                </div>
+
+                <div class="card-body flex flex-1 flex-col p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-red-800">Ruger</span>
+                    </div>
+
+                    <a href="#" class="title block text-xl font-black leading-tight text-slate-900">Wrangler</a>
+
+                    <div class="spec-grid mt-4 grid grid-cols-3 gap-2 bg-slate-50 p-2 accent-ring">
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Barrel</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">4.62&quot;</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Caliber</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">22LR</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Action</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">Single</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-500">Price</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="price text-2xl font-black text-slate-900">$179</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-2 bg-emerald-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                        In Stock
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="button w-full bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 py-2.5">
+            <article class="compact-card group flat-card flex h-full flex-col overflow-hidden bg-white card-shadow">
+                <div class="photo-panel relative overflow-hidden p-4">
+                    <img src="https://cdn11.bigcommerce.com/s-tomy5bhc1m/images/stencil/1280x1280/products/35946/23831/725327936664__68407_6440__27781.1785290267.jpg?c=1" alt="Rifle stock photo" class="flat-img" />
+                </div>
+
+                <div class="card-body flex flex-1 flex-col p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-red-800">Taurus</span>
+                    </div>
+
+                    <a href="#" class="title block text-xl font-black leading-tight text-slate-900">TX22 Competition</a>
+
+                    <div class="spec-grid mt-4 grid grid-cols-3 gap-2 bg-slate-50 p-2 accent-ring">
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Barrel</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">5.25&quot;</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Caliber</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">9mm</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Action</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">Semi Auto</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-500">Price</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="price text-2xl font-black text-slate-900">$499</span>
+                                <span class="text-xs font-medium text-slate-400 line-through">$559</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-2 bg-emerald-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                        In stock
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="button w-full bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="compact-card group flat-card flex h-full flex-col overflow-hidden bg-white card-shadow">
+                <div class="photo-panel relative overflow-hidden p-4">
+                    <img src="https://d3ue8e8tc2my2n.cloudfront.net/product_images/302/thumb/xl_1747431935.jpeg" alt="A handgun stock photo" class="flat-img" />
+                </div>
+
+                <div class="card-body flex flex-1 flex-col p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-red-800">Hi-Point</span>
+                    </div>
+
+                    <a href="#" class="title block text-xl font-black leading-tight text-slate-900">C9</a>
+
+                    <div class="spec-grid mt-4 grid grid-cols-3 gap-2 bg-slate-50 p-2 accent-ring">
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Barrel</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">3.5&quot;</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Caliber</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">9mm</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Action</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">Semi Auto</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-500">Price</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="price text-2xl font-black text-slate-900">$689</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-2 bg-blue-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                        <span class="h-2 w-2 rounded-full bg-blue-500"></span>
+                        Warehouse Item
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="button w-full bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="compact-card group flat-card flex h-full flex-col overflow-hidden bg-white card-shadow">
+                <div class="photo-panel relative overflow-hidden p-4">
+                    <img src="https://content.osgnetworks.tv/handgunsmag/content/photos/Ruger-Wrangler-Revolver-770.jpg" alt="Rifle stock photo" class="flat-img" />
+                </div>
+
+                <div class="card-body flex flex-1 flex-col p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-red-800">Ruger</span>
+                    </div>
+
+                    <a href="#" class="title block text-xl font-black leading-tight text-slate-900">Wrangler</a>
+
+                    <div class="spec-grid mt-4 grid grid-cols-3 gap-2 bg-slate-50 p-2 accent-ring">
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Barrel</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">4.62&quot;</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Caliber</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">22LR</p>
+                        </div>
+                        <div class="spec-box border border-slate-200 bg-white p-2 text-center">
+                            <p class="spec-label text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">Action</p>
+                            <p class="spec-value mt-1 text-xs font-bold text-slate-800">Single</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-500">Price</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="price text-2xl font-black text-slate-900">$179</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex items-center gap-2 bg-emerald-50 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                        In Stock
+                    </div>
+
+                    <div class="mt-3">
+                        <button class="button w-full bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>
