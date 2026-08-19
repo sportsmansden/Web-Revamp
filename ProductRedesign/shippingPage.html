@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shipping Information | Sporting Goods</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		body { font-family: Arial, sans-serif; }
+		.nav-link { transition: all 0.2s ease; }
+		.nav-link:hover { background: rgba(255,255,255,0.12); }
+		.address-card { transition: all 0.2s ease; }
+		.address-card.selected { border-color: #f04d23; box-shadow: inset 0 0 0 1px #f04d23; }
+		.form-input:focus { border-color: #f04d23; outline: 2px solid rgba(240, 77, 35, 0.15); }
+	</style>
+</head>
+<body class="bg-[#f3f1ee] text-slate-900 antialiased">
+	<header class="bg-[#f04d23] text-white">
+		<nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-4 px-4 py-4 text-center text-xs font-semibold uppercase tracking-[0.18em] sm:gap-8">
+			<a class="nav-link rounded px-3 py-2" href="index.html">Product Listings</a>
+			<a class="nav-link rounded px-3 py-2" href="productPage.html">Product Page</a>
+			<a class="nav-link rounded px-3 py-2" href="shippingPage.html">Shipping</a>
+			<a class="nav-link rounded px-3 py-2" href="checkoutPage.html">Checkout</a>
+		</nav>
+	</header>
+
+	<main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+		<div class="mb-8">
+			<p class="mb-2 text-xs font-bold uppercase tracking-[0.22em] text-red-700">Checkout and delivery</p>
+			<h1 class="text-4xl font-black tracking-tight text-slate-900">Select Shipping</h1>
+			<p class="mt-3 max-w-2xl text-base leading-7 text-slate-600">Choose where your order should ship, add a new delivery address, or update your billing information.</p>
+		</div>
+
+		<div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+			<section>
+				<div class="mb-4 flex items-center justify-between">
+					<h2 class="text-xl font-black text-slate-900">Shipping address</h2>
+				</div>
+				<div class="space-y-3" id="address-list">
+					<div class="address-card selected block w-full border bg-white p-5 text-left" data-address="home">
+						<div class="flex items-start justify-between gap-4">
+							<div>
+								<p class="text-xs font-bold uppercase tracking-[0.18em] text-red-700">Home</p>
+								<p class="mt-2 font-bold text-slate-900">Alex Morgan</p>
+								<p class="mt-1 text-sm leading-6 text-slate-600">125 Market Street<br>Columbus, OH 43215</p>
+							</div>
+							<span class="rounded-full bg-emerald-50 px-2 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-emerald-700">Default</span>
+						</div>
+						<button type="button" class="select-address mt-4 w-full bg-slate-900 px-4 py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-slate-800">Select this address</button>
+					</div>
+					<div class="address-card block w-full border border-slate-200 bg-white p-5 text-left" data-address="work">
+						<p class="text-xs font-bold uppercase tracking-[0.18em] text-red-700">Work</p>
+						<p class="mt-2 font-bold text-slate-900">Alex Morgan</p>
+						<p class="mt-1 text-sm leading-6 text-slate-600">800 Broad Avenue, Suite 210<br>Columbus, OH 43215</p>
+						<button type="button" class="select-address mt-4 w-full bg-slate-900 px-4 py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-slate-800">Select this address</button>
+					</div>
+				</div>
+
+				<form id="new-address-form" class="mt-6 hidden border border-slate-200 bg-white p-5">
+					<div class="mb-5 flex items-center justify-between">
+						<h2 class="text-lg font-black text-slate-900">Add a new address</h2>
+						<button id="cancel-address" type="button" class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 hover:text-slate-900">Cancel</button>
+					</div>
+					<div class="grid gap-4 sm:grid-cols-2">
+						<label class="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Full name<input required name="name" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+						<label class="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Address line<input required name="line" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+						<label class="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">City<input required name="city" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+						<label class="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">State<input required name="state" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+						<label class="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">ZIP code<input required name="zip" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+					</div>
+					<button class="mt-5 w-full bg-slate-900 px-4 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white hover:bg-slate-800">Save address</button>
+				</form>
+				<button id="show-address-form" type="button" class="mt-4 w-full border border-slate-300 bg-white px-4 py-3 text-sm font-bold uppercase tracking-[0.14em] text-slate-800 hover:bg-slate-50">+ Add new address</button>
+			</section>
+
+			<section class="border border-slate-200 bg-white p-5">
+				<div class="mb-5 flex items-center justify-between">
+					<div>
+						<p class="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-red-700">Payment profile</p>
+						<h2 class="text-xl font-black text-slate-900">Billing address</h2>
+					</div>
+					<span id="billing-status" class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">Saved</span>
+				</div>
+				<form id="billing-form" class="space-y-4">
+					<label class="block text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Full name<input name="billing-name" value="Alex Morgan" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+					<label class="block text-xs font-bold uppercase tracking-[0.12em] text-slate-500">Address line<input name="billing-line" value="125 Market Street" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+					<div class="grid gap-4 sm:grid-cols-2">
+						<label class="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">City<input name="billing-city" value="Columbus" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+						<label class="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">State<input name="billing-state" value="OH" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+					</div>
+					<label class="block text-xs font-bold uppercase tracking-[0.12em] text-slate-500">ZIP code<input name="billing-zip" value="43215" class="form-input mt-2 w-full border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-normal normal-case tracking-normal text-slate-900"></label>
+					<button class="w-full bg-[#f04d23] px-4 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white hover:bg-[#d9431e]">Save billing address</button>
+				</form>
+			</section>
+		</div>
+	</main>
+
+	<script>
+		const addressList = document.querySelector('#address-list');
+		const selectedLabel = document.querySelector('#selected-label');
+		const newAddressForm = document.querySelector('#new-address-form');
+		const showAddressForm = document.querySelector('#show-address-form');
+		const cancelAddress = document.querySelector('#cancel-address');
+		const billingForm = document.querySelector('#billing-form');
+		const billingStatus = document.querySelector('#billing-status');
+
+		function selectAddress(card) {
+			document.querySelectorAll('.address-card').forEach((item) => item.classList.remove('selected'));
+			card.classList.add('selected');
+			selectedLabel.textContent = `${card.dataset.address} selected`;
+		}
+
+		showAddressForm.addEventListener('click', () => {
+			newAddressForm.classList.remove('hidden');
+			showAddressForm.classList.add('hidden');
+		});
+		cancelAddress.addEventListener('click', () => {
+			newAddressForm.reset();
+			newAddressForm.classList.add('hidden');
+			showAddressForm.classList.remove('hidden');
+		});
+		newAddressForm.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const data = new FormData(newAddressForm);
+			const card = document.createElement('div');
+			card.dataset.address = 'new address';
+			card.className = 'address-card selected block w-full border bg-white p-5 text-left';
+			card.innerHTML = `<p class="text-xs font-bold uppercase tracking-[0.18em] text-red-700">New address</p><p class="mt-2 font-bold text-slate-900">${data.get('name')}</p><p class="mt-1 text-sm leading-6 text-slate-600">${data.get('line')}<br>${data.get('city')}, ${data.get('state')} ${data.get('zip')}</p><button type="button" class="select-address mt-4 w-full bg-slate-900 px-4 py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-slate-800">Select this address</button>`;
+			addressList.appendChild(card);
+			card.querySelector('.select-address').addEventListener('click', () => selectAddress(card));
+			newAddressForm.reset();
+			newAddressForm.classList.add('hidden');
+			showAddressForm.classList.remove('hidden');
+		});
+
+		document.querySelectorAll('.select-address').forEach((button) => {
+			button.addEventListener('click', () => selectAddress(button.closest('.address-card')));
+		});
+		billingForm.addEventListener('input', () => {
+			billingStatus.textContent = 'Unsaved changes';
+			billingStatus.className = 'text-xs font-bold uppercase tracking-[0.14em] text-amber-600';
+		});
+		billingForm.addEventListener('submit', (event) => {
+			event.preventDefault();
+			billingStatus.textContent = 'Saved';
+			billingStatus.className = 'text-xs font-bold uppercase tracking-[0.14em] text-emerald-700';
+		});
+	</script>
+</body>
+</html>
