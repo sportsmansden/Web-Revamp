@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flyer Hotspot Builder</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f9; }
+    .controls { margin-bottom: 15px; display: flex; gap: 10px; align-items: center; }
+    
+    /* FLYER CONTAINER */
+    #flyer-wrapper {
+      position: relative;
+      display: inline-block;
+      border: 2px solid #ccc;
+      background: #fff;
+    }
+    #flyer-image { display: block; max-width: 100%; height: auto; }
+    
+    /* HOTSPOT BOXES */
+    .hotspot {
+      position: absolute;
+      border: 2px dashed #007bff;
+      background: rgba(0, 123, 255, 0.2);
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    /* CUSTOMER HOVER EFFECT */
+    body.preview-mode .hotspot {
+      border: 2px solid transparent;
+      background: rgba(255, 255, 255, 0);
+    }
+    body.preview-mode .hotspot:hover {
+      border: 2px solid #28a745;
+      background: rgba(40, 167, 69, 0.25);
+      box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Interactive Flyer Hotspot Engine</h2>
+  
+  <div class="controls">
+    <input type="file" id="image-upload" accept="image/*">
+    <button id="toggle-mode">Switch to Preview Mode</button>
+    <button id="export-json">Export Hotspots (JSON)</button>
+  </div>
+
+  <div id="flyer-wrapper">
+    <img id="flyer-image" src="" alt="Upload a flyer..." style="display:none;">
+  </div>
+
+  <script>
+    const wrapper = document.getElementById('flyer-wrapper');
+    const image = document.getElementById('flyer-image');
+    const upload = document.getElementById('image-upload');
+    const toggleBtn = document.getElementById('toggle-mode');
+    const exportBtn = document.getElementById('export-json');
+
+    let isEditing = true;
+    let isDrawing = false;
+    let startX, startY, currentBox;
+    let hotspots = []; // Stores coordinate payloads
+
+    // 1. HANDLE IMAGE UPLOAD
+    upload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          image.src = event.target.result;
+          image.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // 2. DRAWING HOTSPOTS (ADMIN MODE)
+    wrapper.addEventListener('mousedown', (e) => {
+      if (!isEditing || e.target !== image) return;
+      isDrawing = true;
+      
+      const rect = wrapper.getBoundingClientRect();
+      startX = e.clientX - rect.left;
+      startY = e.clientY - rect.top;
+
+      currentBox = document.createElement('div');
+      currentBox.className = 'hotspot';
+      currentBox.style.left = `${startX}px`;
+      currentBox.style.top = `${startY}px`;
+      wrapper.appendChild(currentBox);
+    });
+
+    wrapper.addEventListener('mousemove', (e) => {
+      if (!isDrawing) return;
+      const rect = wrapper.getBoundingClientRect();
+      const currentX = e.clientX - rect.left;
+      const currentY = e.clientY - rect.top;
+
+      const width = currentX - startX;
+      const height = currentY - startY;
+
+      currentBox.style.width = `${Math.abs(width)}px`;
+      currentBox.style.height = `${Math.abs(height)}px`;
+      if (width < 0) currentBox.style.left = `${currentX}px`;
+      if (height < 0) currentBox.style.top = `${currentY}px`;
+    });
+
+    wrapper.addEventListener('mouseup', () => {
+      if (!isDrawing) return;
+      isDrawing = false;
+
+      // Prompt for Product URL
+      const targetUrl = prompt("Enter the Celerant product URL for this item:", "https://www.sportsmansden.com/item/12345");
+      
+      if (targetUrl) {
+        // Calculate percentages so coordinates scale on mobile screens
+        const imgWidth = image.clientWidth;
+        const imgHeight = image.clientHeight;
+        
+        const hotspotData = {
+          url: targetUrl,
+          xPct: (parseFloat(currentBox.style.left) / imgWidth) * 100,
+          yPct: (parseFloat(currentBox.style.top) / imgHeight) * 100,
+          wPct: (parseFloat(currentBox.style.width) / imgWidth) * 100,
+          hPct: (parseFloat(currentBox.style.height) / imgHeight) * 100
+        };
+
+        currentBox.dataset.url = targetUrl;
+        hotspots.push(hotspotData);
+        
+        // Add click behavior
+        currentBox.addEventListener('click', () => {
+          if (!isEditing) {
+            window.open(currentBox.dataset.url, '_blank');
+          }
+        });
+      } else {
+        currentBox.remove(); // Cancel box if no URL entered
+      }
+    });
+
+    // 3. TOGGLE PREVIEW MODE
+    toggleBtn.addEventListener('click', () => {
+      isEditing = !isEditing;
+      document.body.classList.toggle('preview-mode', !isEditing);
+      toggleBtn.innerText = isEditing ? "Switch to Preview Mode" : "Switch to Admin Mode";
+    });
+
+    // 4. EXPORT JSON DATA
+    exportBtn.addEventListener('click', () => {
+      console.log("Hotspot Configuration Payload:", JSON.stringify(hotspots, null, 2));
+      alert("Hotspot coordinates exported to Console Log!");
+    });
+  </script>
+</body>
+</html>
