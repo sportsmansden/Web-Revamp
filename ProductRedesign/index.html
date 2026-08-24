@@ -78,7 +78,19 @@
 
                             <!-- Right: Sort Dropdown & Quick Layout Controls -->
                             <div class="flex items-center justify-between gap-3 sm:justify-end">
-                            
+                                <!-- In Stock Only Checkbox -->
+                                <label class="flex cursor-pointer items-center gap-2 select-none">
+                                <input 
+                                    type="checkbox" 
+                                    id="in-stock-only" 
+                                    name="in_stock" 
+                                    checked 
+                                    class="h-4 w-4 rounded border-slate-300 text-slate-900 transition focus:ring-1 focus:ring-slate-900"
+                                />
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    In Stock Only
+                                </span>
+                                </label>                   
                             <!-- Sort By Dropdown -->
                             <div class="flex items-center gap-2">
                                 <label for="sort-by" class="whitespace-nowrap text-xs font-bold uppercase tracking-wider text-slate-500">
