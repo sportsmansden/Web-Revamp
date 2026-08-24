@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporting Goods Product Cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .card-shadow { box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12); }
+        .flat-card { border-radius: 0; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .flat-card:hover { transform: translateY(-4px); box-shadow: 0 22px 40px rgba(15, 23, 42, 0.18); }
+        .photo-panel { background: #ffffff; height: 12rem; display: flex; align-items: center; justify-content: center; }
+        .photo-panel img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background: rgba(255,255,255,0.12); }
+        .filter-summary { display: flex; align-items: center; justify-content: space-between; }
+        .filter-summary::after { content: '\2193'; color: #64748b; font-size: 1rem; }
+        details[open] .filter-summary::after { content: '\2191'; }
+        .price-slider { position: relative; height: 1.5rem; }
+        .price-slider::before { content: ''; position: absolute; left: 0.4rem; right: 0.4rem; top: 0.65rem; height: 0.25rem; background: #cbd5e1; }
+        .price-range { position: absolute; inset: 0; width: 100%; margin: 0; appearance: none; background: transparent; pointer-events: none; }
+        .price-range::-webkit-slider-runnable-track { height: 0.25rem; background: transparent; }
+        .price-range::-webkit-slider-thumb { width: 0.9rem; height: 0.9rem; margin-top: -0.325rem; border: 2px solid #f04d23; border-radius: 9999px; background: white; appearance: none; pointer-events: auto; cursor: pointer; }
+        .price-range::-moz-range-track { height: 0.25rem; background: transparent; }
+        .price-range::-moz-range-thumb { width: 0.9rem; height: 0.9rem; border: 2px solid #f04d23; border-radius: 9999px; background: white; pointer-events: auto; cursor: pointer; }
+    </style>
+</head>
+
+<body class="bg-[#f3f1ee] text-slate-900 antialiased">
+    <header class="bg-[#f04d23] text-white">
+        <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-1 px-2 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] sm:gap-4 sm:px-4 sm:py-3 sm:text-xs sm:tracking-[0.18em]">
+            <a class="nav-link rounded px-2 py-1.5 sm:px-3 sm:py-2" href="HomePage.html">Home Page</a>
+            <a class="nav-link rounded px-2 py-1.5 sm:px-3 sm:py-2" href="SalePage.html">Sale Page</a>
+        </nav>
+    </header>
+</body>
